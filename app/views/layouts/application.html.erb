@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render :partial => "shared/notice" %>
+    <%= flash_messages %>
     <%= render :partial => "shared/new_header" %>
     <%= yield %>
 

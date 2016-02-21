@@ -11,4 +11,6 @@ $(document).on('ready page:load', function () {
       return false;
     });
   });
+
+  $(".alert").fadeOut(5000);
 });
