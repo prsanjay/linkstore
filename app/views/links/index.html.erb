@@ -1,0 +1,16 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <div class="text-left"><h2>Listing Links</h2></div>
+    <%= form_tag links_path, :method => 'get', :id => "links_search", :class =>"form-horizontal" do %>
+        <div class="form-group pull-right">
+          <%= text_field_tag :search, params[:search],:placeholder=>"Search....",:class=>"form-control" %>
+        </div>
+        <div class="pull-right m-r-sm">
+          <%= link_to 'New Link', new_link_path, :class =>"btn btn-success" %>
+        </div>
+      <div id="table-data" class="col-lg-12">
+        <%= render :partial => "links_table_data" %>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Link name:</strong>
+  <%= @link.link_name %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @link.subject %>
+</p>
+
+
+<p>
+  <strong>Url:</strong>
+  <%= link_to(@link.url, @link.url , :target => "_blank") %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @link.url_content %>
+</p>
+
+  <div class="text-left">
+    <%= link_to 'Edit', edit_link_path(@link) ,:class => "btn btn-default"%>
+    <%= link_to 'Back', links_path, :class => "btn btn-success" %>
+  </div>
+</div>
