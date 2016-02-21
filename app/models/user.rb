@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :links, dependent: :destroy
 
-  validates :first_name,:last_name, :email, presence: true
+  validates :first_name,:last_name, :email,:password, presence: true
 end
