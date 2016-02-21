@@ -1,5 +1,10 @@
 <% if @links.size == 0 %>
-  <h2 class="text-center"> No match found....</h2>
+  <% if params[:search].present? %>
+    <h2 class="text-center"> No match found....</h2>
+  <% else %>
+  <h3 class="text-center"> No Links added yet....</h3>
+  <p class="text-center"><%= link_to 'Add first helpful Link', new_link_path, :class =>"btn btn-success" %><p>
+  <% end %>
 <% else %>
   <table class="table table-striped">
       <thead>
