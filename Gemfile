@@ -29,6 +29,7 @@ gem "therubyracer"
 gem 'kaminari'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
+gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

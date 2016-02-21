@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MyLinkStore</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>MyLinkStore</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render :partial => "shared/notice" %>
+    <%= render :partial => "shared/new_header" %>
+    <%= yield %>
 
-<%= yield %>
-<p class='font-sm m-t-cc text-center'> <strong>Please note: </strong>All URLs and its contents are copyrighted under corrosponding URL's author. </p>
-</body>
+    <% if current_user.present? %>
+      <p class='font-sm m-t-cc text-center'> <strong>Please note: </strong>All URLs and its contents are copyrighted under corrosponding URL's author. </p>
+    <% end %>
+  </body>
 </html>
