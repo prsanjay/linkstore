@@ -6,9 +6,13 @@ class LinksController < ApplicationController
   # GET /links.json
   def index
     if params[:search].present?
-      @links = current_user.links.search(params[:search]).order(:link_name).page(params[:page])
+      @links = current_user.links.search(params[:search]).order('created_at DESC').page(params[:page])
     else
-      @links = current_user.links.all.order(:link_name).page(params[:page])
+      @links = current_user.links.all.order('created_at DESC').page(params[:page])
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

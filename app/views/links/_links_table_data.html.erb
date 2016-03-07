@@ -9,7 +9,6 @@
   <table class="table table-striped">
       <thead>
         <tr>
-          <th></th>
           <th>Link name</th>
           <th>Url</th>
           <th>Created at</th>
@@ -20,7 +19,6 @@
       <tbody>
         <% @links.each_with_index do |link,index| %>
           <tr>
-            <td><%= index+=1 %></td>
             <td><%= link.link_name %></td>
             <td><%= link_to(link.url, link.url, :target=>"_blank") %></td>
             <td><%= link.created_at.strftime('%d/%m/%Y') %></td>
