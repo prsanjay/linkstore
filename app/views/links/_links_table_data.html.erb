@@ -6,13 +6,13 @@
   <p class="text-center"><%= link_to 'Add first helpful Link', new_link_path, :class =>"btn btn-success" %><p>
   <% end %>
 <% else %>
-  <table class="table table-striped">
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th>Link name</th>
-          <th>Url</th>
-          <th>Created at</th>
-          <th colspan="3" class="text-center">Actions</th>
+          <th style="width:30%">Link name</th>
+          <th style="width:40%">Url</th>
+          <th style="width:10%">Created at</th>
+          <th style="width:18%" colspan="3" class="text-center">Actions</th>
         </tr>
       </thead>
 
@@ -28,8 +28,8 @@
           </tr>
         <% end %>
       </tbody>
-  </table>
+    </table>
   <div class="text-center">
-    <%= paginate @links %>
+    <%= paginate @links, remote: true %>
   </div>
 <% end %>
