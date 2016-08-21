@@ -11,4 +11,8 @@ $(document).on('ready page:load', function () {
   });
 
   $(".alert").fadeOut(5000);
+
+  $(document).on('click', '.clr_srch_box', function(){
+    $('#search').val('')
+  });
 });
