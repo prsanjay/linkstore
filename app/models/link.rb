@@ -8,6 +8,8 @@ class Link < ActiveRecord::Base
 
   paginates_per 10
 
+  acts_as_taggable
+
   def self.search(search)
     if search
       where('link_name ilike ? OR url ilike ? OR subject ilike ?', "%#{search}%","%#{search}%","%#{search}%")

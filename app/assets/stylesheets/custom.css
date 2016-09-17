@@ -50,3 +50,43 @@
 .m-l-lg{
   margin-left: 100px;
 }
+
+.bootstrap-tagsinput{
+  display:block;
+}
+
+div.tagsinput span.tag a{
+  color: white;
+}
+
+div.tagsinput span.tag{
+  background: #5bc0de;
+  border:none;
+  color: white;
+}
+
+
+#tag_cloud a {
+  display: inline-block;
+  max-width: 100px;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 1em;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #333;
+  font-size: 13px;
+  text-decoration: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+#tag_cloud a:hover {
+  background-color: #5cb85c;
+  border: 1px solid #5cb85c;
+  color: #fff;
+}

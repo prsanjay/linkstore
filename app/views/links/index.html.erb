@@ -2,6 +2,12 @@
   <p id="notice"><%#= notice %></p>
 
   <div class="text-center"><h3>Listing Links</h3></div>
+  <div id="tag_cloud">
+    <% tag_cloud current_user.links.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name.capitalize, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
+
     <%= form_tag links_path, :method => 'get', :id => "links_search", :class =>"form-horizontal" do %>
         <div class="form-group pull-right">
           <%= text_field_tag :search, params[:search],:placeholder=>"Search....",:class=>"form-control" %>

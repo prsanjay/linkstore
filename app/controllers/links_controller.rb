@@ -5,7 +5,9 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    if params[:search].present?
+    if params[:tag].present?
+      @links = current_user.links.tagged_with(params[:tag]).order('created_at DESC').page(params[:page])
+    elsif params[:search].present?
       @links = current_user.links.search(params[:search]).order('created_at DESC').page(params[:page])
     else
       @links = current_user.links.all.order('created_at DESC').page(params[:page])
@@ -28,6 +30,7 @@ class LinksController < ApplicationController
 
   # GET /links/1/edit
   def edit
+    @tag_list = @link.tag_list
   end
 
   # POST /links
@@ -79,6 +82,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:link_name, :subject, :description, :url, :url_content)
+      params.require(:link).permit(:link_name, :subject, :description, :url, :url_content,:tag_list)
     end
 end

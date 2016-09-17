@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require rails.validations
 //= require rails.validations.simple_form
+//= require jquery.tagsinput.min
 //= require_tree .
 
