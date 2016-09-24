@@ -5,33 +5,45 @@
       <%= link_to 'Back',links_path, :class => "btn btn-default text-center" %>
     </div>
   <% else %>
-  <h3 class="text-center"> No Links added yet....</h3>
-  <p class="text-center"><%= link_to 'Add first helpful Link', new_link_path, :class =>"btn btn-success" %><p>
+    <h3 class="text-center"> No Links added yet....</h3>
+    <p class="text-center"><%= link_to 'Add first helpful Link', new_link_path, :class =>"btn btn-success" %><p>
   <% end %>
 <% else %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th style="width:30%" class="text-center">LINK NAME</th>
-          <th style="width:40%" class="text-center">URL</th>
-          <th style="width:15%">CREATED AT</th>
-          <th style="width:20%" colspan="3" class="text-center">ACTIONS</th>
-        </tr>
-      </thead>
+    <div class="col-sm-12">
+      <div class="col-sm-10">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width:30%" class="text-center">LINK NAME</th>
+              <th style="width:40%" class="text-center">URL</th>
+              <th style="width:15%">CREATED AT</th>
+              <th style="width:25%" colspan="3" class="text-center">ACTIONS</th>
+            </tr>
+          </thead>
 
-      <tbody>
-        <% @links.each_with_index do |link,index| %>
-          <tr>
-            <td><%= link.link_name %></td>
-            <td><%= link_to(link.url, link.url, :target=>"_blank") %></td>
-            <td><%= link.created_at.strftime('%d/%m/%Y') %></td>
-            <td><%= link_to 'Show', link %></td>
-            <td><%= link_to 'Edit', edit_link_path(link) %></td>
-            <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <tbody>
+            <% @links.each_with_index do |link,index| %>
+              <tr>
+                <td><%= link.link_name %></td>
+                <td><%= link_to(link.url, link.url, :target=>"_blank") %></td>
+                <td><%= link.created_at.strftime('%d/%m/%Y') %></td>
+                <td><%= link_to 'Show', link %></td>
+                <td><%= link_to 'Edit', edit_link_path(link) %></td>
+                <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-2 tag_cloud">
+        <span>Tags</span>
+        <div id="tag_cloud">
+          <% tag_cloud current_user.links.tag_counts, %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name.capitalize, tag_path(tag.name), class: css_class %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <div class="text-center">
     <%= paginate @links, remote: true %>
   </div>

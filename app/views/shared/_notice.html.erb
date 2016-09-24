@@ -1,3 +1,8 @@
-<%= content_tag(:div, flash[:error], :id => "flash_error",:class => "text-center red") if flash[:error] %>
-<%= content_tag(:div, flash[:notice], :id => "flash_notice",:class => "text-center green") if flash[:notice] %>
-<%= content_tag(:div, flash[:alert], :id => "flash_alert",:class => "text-center red") if flash[:alert] %>
+<% unless flash.empty? %>
+  <script type="text/javascript">
+    <% flash.each do |f| %>
+    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+     toastr['<%= type %>']('<%= f[1] %>');
+    <% end %>
+  </script>
+<% end %>

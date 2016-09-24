@@ -13,9 +13,14 @@ th, td {
 }
 
 #tag_cloud{
-  width:400px;
+  width:220px;
   line-height: 1.6em;
   .s{font-size:0.8em}
-  .m{font-size:0.2em}
+  .m{font-size:0.8em}
   .l{font-size:0.8em}
+  margin-top:10px;
+}
+
+.tag_cloud{
+  margin-top: 30px;
 }

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require jquery.tagsinput.min
+ *= require toastr
  *= require_tree .
  *= require_self
  */
